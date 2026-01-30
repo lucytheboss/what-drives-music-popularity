@@ -18,7 +18,7 @@ This approach reveals:
 
 ---
 
-## 🚀 Key Insights ![Full analysis](reports/analysis_report.md)
+## 🚀 Key Insights [Full analysis](reports/analysis_report.md)
 
 - Momentum explains baseline trends but not outcomes
 - ~20% of tracks behave unexpectedly
