@@ -23,7 +23,7 @@ To answer this, we:
 # 2. Exploratory Data Analysis (EDA)
 
 ## 2.1 Popularity Distribution
-![Track Popularity Distribution](../images/fig01_track_popularity_distribution.png)
+![Track Popularity Distribution](../images/eda/fig01_track_popularity_distribution.png)
 
 
 Track popularity is broadly centered around mid-range values with long tails.
