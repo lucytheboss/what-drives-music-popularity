@@ -87,7 +87,7 @@ These variables represent structural or historical signals available prior to re
 ---
 
 ## 3.2 Model Fit
-![Model Fit](../imagesy/discovery/fig14_actual_vs_predicted.png)
+![Model Fit](../images/discovery/fig14_actual_vs_predicted.png)
 
 The model captures general trends:
 
@@ -250,6 +250,6 @@ This behavioral perspective enables more effective and more equitable music disc
 
 ## Repository Links
 
-Notebook: notebooks/06_discovery_and_underrated_track.ipynb  
-Figures: assets/figures/discovery/  
+Notebook: [../notebooks/06_discovery_and_underrated_track.ipynb]
+Figures: [../images] 
 Dashboard: Tableau (link)  
