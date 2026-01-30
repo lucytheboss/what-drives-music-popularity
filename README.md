@@ -31,16 +31,16 @@ This approach reveals:
 ## 📊 Visual Highlights
 
 ### Popularity Distribution
-![Popularity](assets/figures/discovery/fig13_popularity_distribution.png)
+![Popularity](images/fig13_popularity_distribution.png)
 
 ### Model Fit (Actual vs Predicted)
-![Model Fit](assets/figures/discovery/fig14_actual_vs_predicted.png)
+![Model Fit](images/fig14_actual_vs_predicted.png)
 
 ### Residual Distribution
-![Residuals](assets/figures/discovery/fig15_residual_distribution.png)
+![Residuals](images/fig15_residual_distribution.png)
 
 ### Underrated Genre Bias
-![Underrated](assets/figures/discovery/fig18_underrated_genre_bias.png)
+![Underrated](images/fig18_underrated_genre_bias.png)
 
 ### Surprise Hit Genre Bias
 ![Surprise](assets/figures/discovery/fig19_surprise_genre_bias.png)
