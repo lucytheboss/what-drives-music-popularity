@@ -380,4 +380,4 @@ Slides:  [reports/discovery_analysis_slides.pdf](/reports/discovery_analysis_sli
 
 Project README:  [../README.md`](/README.md)
 
-Dashboard: Tableau (link)  
+Dashboard: [Tableau Dashboard](https://public.tableau.com/app/profile/lucy.roh/viz/MusicBehavioralDiscoveryInsightsDashboard/Dashboard1?publish=yes)
