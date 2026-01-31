@@ -374,8 +374,13 @@ This behavioral perspective enables more effective and more equitable music disc
 
 ## Repository Links
 
-Notebook: [Click Here](../notebooks/06_discovery_and_underrated_track.ipynb)
+Notebooks:  
+`/notebooks`
 
-Figures: [Click Here](../images) 
+Slides:  
+`reports/slides.pdf`
+
+Project README:  
+`../README.md`
 
 Dashboard: Tableau (link)  
