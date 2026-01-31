@@ -86,7 +86,28 @@ These variables represent structural or historical signals available prior to re
 
 ---
 
-## 3.2 Model Fit
+## 3.2 Training Setup & Evaluation Protocol
+To ensure realistic evaluation and avoid information leakage, model training follows a strict separation between historical and future data.
+
+**Data split**
+
+- Train: 80% earlier releases (5,479 tracks (earlier releases))
+- Test: 20% later releases (1,370 tracks (later releases, holdout))
+
+This mimics a real-world scenario where popularity must be estimated **before a new track’s performance is observed**.
+
+**Procedure**
+
+- Features computed using only pre-release information
+- Linear Regression (OLS) used as the baseline model
+- Model fit on training data only
+- Final metrics reported on the held-out test set
+
+This prevents overfitting and ensures that performance reflects true predictive ability.
+
+---
+
+## 3.3 Model Fit
 ![Model Fit](../images/discovery/fig14_actual_vs_predicted.png)
 
 The model captures general trends:
@@ -107,6 +128,54 @@ This motivates analyzing **prediction errors** rather than predictions alone.
 
 ---
 
+## 3.4 Model Performance Metrics
+
+We evaluate multiple model configurations on the held-out test set (n = 1,370).
+
+| Model | Features | R² | MAE |
+|--------|----------------------------|-------|-------|
+| Audio only | audio features | 0.003 | 14.17 |
+| Artist only | popularity + followers | 0.104 | 13.34 |
+| Artist + momentum | history + prior releases | 0.198 | 12.07 |
+
+**Key observations**
+
+- Audio features alone explain virtually none of the variance
+- Artist reputation explains ~10%
+- Adding momentum improves prediction modestly
+- Even the best model explains only ~20% of outcomes
+
+**Interpretation**
+
+Over **80% of popularity variance remains unexplained** by structural or historical signals.
+
+This motivates analyzing **prediction errors (residuals)** rather than predictions alone.
+
+---
+
+## 3.5 Feature Contributions
+To understand which factors drive expected popularity, we examine model coefficients and feature importance.
+
+**Most influential predictors*
+
+- Artist popularity
+- Follower count
+- Prior release momentum
+
+**Secondary predictors**
+
+- Track duration
+- Audio characteristics (energy, brightness, rhythm strength)
+
+Audio features show only moderate effects relative to historical reputation signals.
+
+**Interpretation**
+
+- Baseline popularity is primarily explained by exposure and reputation, while intrinsic musical characteristics play a smaller role.
+- This supports the hypothesis that discovery mechanics, not only content quality, shape outcomes.
+
+---
+
 # 4. Residual-Based Discovery Analysis
 
 ## 4.1 Residual Definition
@@ -124,7 +193,22 @@ Residuals isolate behavioral or exposure-driven effects not captured by the mode
 
 ---
 
-## 4.2 Segmenting Tracks
+## 4.2 Residual Segmentation Method
+Tracks are categorized using the distribution of prediction residuals:
+$$residual=actual−predicted$$
+
+We define segments using percentile thresholds:
+- **Surprise Hits**: top 10% residuals
+- **Expected**: middle 80%
+- **Underrated**: bottom 10%
+
+This approach isolates tracks that significantly overperform or underperform relative to expectation while remaining robust to noise.
+
+Approximately **20% of tracks fall outside expected performance**, indicating systematic rather than purely random deviations.
+
+---
+
+## 4.3 Segmenting Tracks
 
 Tracks are grouped into:
 
@@ -234,7 +318,47 @@ Residual-based analysis provides a practical way to detect where recommendation 
 
 ---
 
-# 8. Conclusion
+## 7.1 Product & System Opportunities
+Residual analysis provides actionable signals for improving discovery systems.
+
+**Potential applications**
+- Re-rank recommendations using residual-adjusted scores
+- Surface high-quality but underexposed “hidden gem” tracks
+- Reduce popularity bias by boosting niche genres
+- Diversify playlists to improve long-tail engagement
+- Detect systematic exposure inequalities across categories
+- Improve cold-start handling for new or smaller artists
+
+
+These interventions can increase:
+- catalog utilization
+- fairness of exposure
+- listener discovery
+- overall engagement
+
+Residuals therefore serve as a practical diagnostic tool for identifying **where recommendation systems leave value untapped**.
+
+---
+
+# 8. Limitations
+Several constraints should be considered when interpreting results:
+
+- Popularity scores are imperfect proxies for true listener preference
+- Exposure data (playlist placement, recommendation impressions) is not directly observed
+- Linear modeling assumes additive relationships and may miss nonlinear effects
+- Findings are correlational and do not establish causality
+
+
+Future work could incorporate:
+
+- recommendation logs or exposure metrics
+- nonlinear or ensemble models
+- causal inference methods (A/B testing or quasi-experimental designs)
+
+Despite these limitations, residual-based analysis remains a useful framework for identifying discovery inefficiencies.
+
+---
+# 9. Conclusion
 
 Prediction explains part of popularity, but not all.
 
