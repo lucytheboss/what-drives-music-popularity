@@ -374,13 +374,10 @@ This behavioral perspective enables more effective and more equitable music disc
 
 ## Repository Links
 
-Notebooks:  
-`/notebooks`
+Notebooks: [/notebooks](../notebooks/)
 
-Slides:  
-`reports/slides.pdf`
+Slides:  [reports/discovery_analysis_slides.pdf](/reports/discovery_analysis_slides.pdf)
 
-Project README:  
-`../README.md`
+Project README:  [../README.md`](/README.md)
 
 Dashboard: Tableau (link)  
